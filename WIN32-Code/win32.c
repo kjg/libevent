@@ -60,7 +60,8 @@ volatile sig_atomic_t signal_caught = 0;
 /* MSDN says this is required to handle SIGFPE */
 volatile double SIGFPE_REQ = 0.0f;
 
-int signal_handler(int sig);
+static void signal_handler(int sig);
+
 void signal_process(void);
 int signal_recalc(void);
 
@@ -205,8 +206,9 @@ win32_recalc(struct event_base *base, void *arg, int max)
 }
 
 int
-win32_insert(struct win32op *win32op, struct event *ev)
+win32_insert(void *op, struct event *ev)
 {
+	struct win32op *win32op = op;
 	int i;
 
 	if (ev->ev_events & EV_SIGNAL) {
@@ -251,8 +253,9 @@ win32_insert(struct win32op *win32op, struct event *ev)
 }
 
 int
-win32_del(struct win32op *win32op, struct event *ev)
+win32_del(void *op, struct event *ev)
 {
+	struct win32op *win32op = op;
 	int i, found;
 
 	if (ev->ev_events & EV_SIGNAL)
@@ -302,9 +305,10 @@ fd_set_copy(struct win_fd_set *out, const struct win_fd_set *in)
 */
 
 int
-win32_dispatch(struct event_base *base, struct win32op *win32op,
+win32_dispatch(struct event_base *base, void *op,
 	       struct timeval *tv)
 {
+	struct win32op *win32op = op;
 	int res = 0;
 	int i;
 	int fd_count;
@@ -366,13 +370,11 @@ win32_dispatch(struct event_base *base, struct win32op *win32op,
 }
 
 
-static int
+static void
 signal_handler(int sig)
 {
 	evsigcaught[sig]++;
 	signal_caught = 1;
-
-	return 0;
 }
 
 int
