@@ -313,10 +313,6 @@ void evdns_set_log_fn(evdns_debug_log_fn_type fn);
 
 #define DNS_NO_SEARCH 1
 
-#ifdef __cplusplus
-}
-#endif
-
 /*
  * Structures and functions used to implement a DNS server.
  */
@@ -363,5 +359,9 @@ int evdns_server_request_respond(struct evdns_server_request *req, int err);
 int evdns_server_request_drop(struct evdns_server_request *req);
 struct sockaddr;
 int evdns_server_request_get_requesting_addr(struct evdns_server_request *_req, struct sockaddr *sa, int addr_len);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif  /* !EVENTDNS_H */
