@@ -149,6 +149,8 @@ void evhttp_read(int, short, void *);
 void evhttp_write(int, short, void *);
 
 #ifndef HAVE_STRSEP
+/* strsep replacement for platforms that lack it.  Only works if
+ * del is one character long. */
 static char *
 strsep(char **s, const char *del)
 {
@@ -157,9 +159,10 @@ strsep(char **s, const char *del)
 		return NULL;
 	tok = *s;
 	d = strstr(tok, del);
-	if (d)
-		*s = d + strlen(del);
-	else
+	if (d) {
+		*d = '\0';
+		*s = d + 1;
+	} else
 		*s = NULL;
 	return tok;
 }
