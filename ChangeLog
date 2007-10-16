@@ -1,5 +1,6 @@
 Changes since 1.3e:
  o Make the entire evdns.h header enclosed in "extern C" as appropriate.
+ o Remove redundant socklen_t definition from evdns.c; fix mingw build.
 
 Changes since 1.3d:
  o demote most http warnings to debug messages
