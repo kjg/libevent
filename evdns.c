@@ -2263,7 +2263,8 @@ int evdns_resolve_reverse(struct in_addr *in, int flags, evdns_callback_type cal
 }
 
 int evdns_resolve_reverse_ipv6(struct in6_addr *in, int flags, evdns_callback_type callback, void *ptr) {
-	char buf[64];
+	/* 32 nybbles, 32 periods, "ip6.arpa", NUL. */
+	char buf[73];
 	char *cp;
 	struct request *req;
 	int i;
