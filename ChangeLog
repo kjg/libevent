@@ -5,6 +5,7 @@ Changes since 1.3e:
  o Build correctly outside of the source tree. (Patch from Kelly Anderson)
  o Fix evhttp.h compilation when TAILQ_ENTRY is not defined.
  o Fix buffer overrun in evdns_resolve_reverse_ipv6 (backported)
+ o Increase the maximum number of addresses read from a packet in evdns to 32.
 
 Changes since 1.3d:
  o demote most http warnings to debug messages
