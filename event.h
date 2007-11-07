@@ -141,7 +141,7 @@ struct eventop {
 	void (*dealloc)(struct event_base *, void *);
 };
 
-void *event_init(void);
+struct event_base *event_init(void);
 int event_dispatch(void);
 int event_base_dispatch(struct event_base *);
 void event_base_free(struct event_base *);

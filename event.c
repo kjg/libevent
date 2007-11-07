@@ -180,7 +180,7 @@ RB_PROTOTYPE(event_tree, event, ev_timeout_node, compare);
 RB_GENERATE(event_tree, event, ev_timeout_node, compare);
 
 
-void *
+struct event_base *
 event_init(void)
 {
 	int i;
