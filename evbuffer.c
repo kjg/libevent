@@ -288,7 +288,7 @@ bufferevent_free(struct bufferevent *bufev)
  */
 
 int
-bufferevent_write(struct bufferevent *bufev, void *data, size_t size)
+bufferevent_write(struct bufferevent *bufev, const void *data, size_t size)
 {
 	int res;
 
