@@ -31,8 +31,10 @@
 extern "C" {
 #endif
 
+#ifndef _MSC_VER
 #include <sys/time.h>
 #include <stdint.h>
+#endif
 #include <stdarg.h>
 
 #ifdef WIN32
@@ -211,8 +213,8 @@ int	event_priority_set(struct event *, int);
 /* These functions deal with buffering input and output */
 
 struct evbuffer {
-	u_char *buffer;
-	u_char *orig_buffer;
+	unsigned char *buffer;
+	unsigned char *orig_buffer;
 
 	size_t misalign;
 	size_t totallen;
@@ -290,7 +292,7 @@ int evbuffer_add_vprintf(struct evbuffer *, const char *fmt, va_list ap);
 void evbuffer_drain(struct evbuffer *, size_t);
 int evbuffer_write(struct evbuffer *, int);
 int evbuffer_read(struct evbuffer *, int, int);
-u_char *evbuffer_find(struct evbuffer *, const u_char *, size_t);
+unsigned char *evbuffer_find(struct evbuffer *, const unsigned char *, size_t);
 void evbuffer_setcb(struct evbuffer *, void (*)(struct evbuffer *, size_t, size_t, void *), void *);
 
 /* 

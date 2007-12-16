@@ -95,7 +95,7 @@
 #undef HAVE_FCNTL_H
 
 /* Define if you have the `gettimeofday' function. */
-#define HAVE_GETTIMEOFDAY 1
+#undef HAVE_GETTIMEOFDAY
 
 /* Define if you have the <inttypes.h> header file. */
 #define HAVE_INTTYPES_H 1
@@ -197,7 +197,7 @@
 #undef TIME_WITH_SYS_TIME
 
 /* Version number of package */
-#define VERSION "1.0b"
+#define VERSION "1.3e"
 
 /* Define to empty if `const' does not conform to ANSI C. */
 #undef const
@@ -226,6 +226,9 @@
 
 /* Define to `unsigned char' if <sys/types.h> does not define. */
 /* #undef u_int8_t */
+
+#define uint32_t unsigned int
+#define uint8_t unsigned char
 
 /* Define to __FUNCTION__ or __file__ if your compiler doesn't have __func__ */
 #define __func__ __FUNCTION__

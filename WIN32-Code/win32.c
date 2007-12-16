@@ -32,8 +32,6 @@
 #include "../config.h"
 #endif
 
-#include <windows.h>
-#include <winsock2.h>
 #include <sys/types.h>
 #include <sys/queue.h>
 #include <sys/tree.h>
@@ -43,9 +41,10 @@
 #include <string.h>
 #include <errno.h>
 #include <assert.h>
+#include <winsock2.h>
 
-#include "log.h"
 #include "event.h"
+#include "log.h"
 #include "event-internal.h"
 
 #define XFREE(ptr) do { if (ptr) free(ptr); } while(0)

@@ -10,6 +10,7 @@ Changes since 1.3e:
  o Remove == operator from autogen.sh so it works on non-bash shells.
  o bufferevent_write now uses a const source argument; report from Charles Kerr
  o Correctly handle DNS replies with no answers set (Fixes bug 1846282)
+ o Attempt to fix MSVC build.
 
 
 Changes since 1.3d:
