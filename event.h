@@ -43,6 +43,7 @@ extern "C" {
 #undef WIN32_LEAN_AND_MEAN
 typedef unsigned char u_char;
 typedef unsigned short u_short;
+#include <winsock2.h>
 #endif
 
 #define EVLIST_TIMEOUT	0x01

@@ -172,6 +172,14 @@
 			Filter="cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
 			>
 			<File
+				RelativePath="..\buffer.c"
+				>
+			</File>
+			<File
+				RelativePath="..\evbuffer.c"
+				>
+			</File>
+			<File
 				RelativePath="..\event.c"
 				>
 				<FileConfiguration
@@ -238,6 +246,10 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath="..\strlcpy.c"
+				>
+			</File>
+			<File
 				RelativePath="..\WIN32-Code\win32.c"
 				>
 				<FileConfiguration
@@ -273,11 +285,35 @@
 				>
 			</File>
 			<File
+				RelativePath="..\evdns.h"
+				>
+			</File>
+			<File
+				RelativePath="..\event-internal.h"
+				>
+			</File>
+			<File
 				RelativePath="..\event.h"
 				>
 			</File>
 			<File
+				RelativePath="..\evsignal.h"
+				>
+			</File>
+			<File
+				RelativePath="..\http-internal.h"
+				>
+			</File>
+			<File
+				RelativePath="..\log.h"
+				>
+			</File>
+			<File
 				RelativePath="..\WIN32-Code\misc.h"
+				>
+			</File>
+			<File
+				RelativePath="..\strlcpy-internal.h"
 				>
 			</File>
 		</Filter>

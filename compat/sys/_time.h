@@ -37,6 +37,9 @@
 
 #include <sys/types.h>
 
+#ifdef WIN32
+#include <winsock2.h>
+#else
 /*
  * Structure returned by gettimeofday(2) system call,
  * and used in other calls.
@@ -45,6 +48,7 @@ struct timeval {
 	long	tv_sec;		/* seconds */
 	long	tv_usec;	/* and microseconds */
 };
+#endif
 
 /*
  * Structure defined by POSIX.1b to be like a timeval.
@@ -78,10 +82,12 @@ struct timezone {
 /* Operations on timevals. */
 #define	timerclear(tvp)		(tvp)->tv_sec = (tvp)->tv_usec = 0
 #define	timerisset(tvp)		((tvp)->tv_sec || (tvp)->tv_usec)
+#ifndef WIN32
 #define	timercmp(tvp, uvp, cmp)						\
 	(((tvp)->tv_sec == (uvp)->tv_sec) ?				\
 	    ((tvp)->tv_usec cmp (uvp)->tv_usec) :			\
 	    ((tvp)->tv_sec cmp (uvp)->tv_sec))
+#endif
 #define	timeradd(tvp, uvp, vvp)						\
 	do {								\
 		(vvp)->tv_sec = (tvp)->tv_sec + (uvp)->tv_sec;		\

@@ -356,8 +356,13 @@ evbuffer_read(struct evbuffer *buf, int fd, int howmuch)
 #endif
 
 #ifdef FIONREAD
+#ifdef WIN32
+	long lng = n;
+	if (ioctlsocket(fd, FIONREAD, &lng) == -1 || (n=lng) == 0) {
+#else
 	if (ioctl(fd, FIONREAD, &n) == -1 || n == 0) {
 		n = EVBUFFER_MAX_READ;
+#endif
 	} else if (n > EVBUFFER_MAX_READ && n > howmuch) {
 		/*
 		 * It's possible that a lot of data is available for

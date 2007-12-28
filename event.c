@@ -38,7 +38,7 @@
 #include <sys/tree.h>
 #ifdef HAVE_SYS_TIME_H
 #include <sys/time.h>
-#else 
+#else
 #include <sys/_time.h>
 #endif
 #include <sys/queue.h>
