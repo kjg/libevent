@@ -11,7 +11,7 @@ Changes since 1.3e:
  o bufferevent_write now uses a const source argument; report from Charles Kerr
  o Correctly handle DNS replies with no answers set (Fixes bug 1846282)
  o Attempt to fix MSVC build.
-
+ o Send CRLF after each chunk in HTTP output, for compliance with RFC2626.  Patch from "propanbutan".  Fixes bug 1894184.
 
 Changes since 1.3d:
  o demote most http warnings to debug messages
